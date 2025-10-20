@@ -96,7 +96,7 @@ FREQUENCY = 100            # Sampling frequency
 
 ```bash
 cd examples
-python example_lorenz_scaled.py
+python lorenz_scaled.py
 ```
 
 This example demonstrates:
@@ -204,29 +204,3 @@ The framework generates the following outputs:
    - Use moderate `FREQUENCY` (e.g., 10-100) for learning to balance accuracy and speed
 3. **Monomial Degrees**: Higher degrees increase accuracy but computational cost grows as ∏(degrees)
 4. **Sample Size**: Total samples = M_FOR_1D^dim, be mindful of exponential growth
-
-## Mathematical Background
-
-The framework implements the updated resolvent-based learning method for Koopman generators. Given trajectory data, it:
-
-1. Computes polynomial basis functions
-2. Solves resolvent equation: (μ²I - L)R(μ) = I
-3. Reconstructs Koopman generator using log-free formulation
-4. Evaluates RMSE against exact coefficients (if available)
-
-**Key equation:**
-- YL = resolvent_learn * (λ - μ) + η_sample
-- YR = resolvent_learn * λ * μ - λ * η_sample
-- L = (YL)^† @ YR
-
-## Citation
-
-If you use this framework in your research, please cite the original work on log-free learning of Koopman generators.
-
-## License
-
-[Specify your license here]
-
-## Contact
-
-For questions or issues, please contact [your contact information].
